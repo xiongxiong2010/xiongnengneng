@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>熊能能 · 个人简介</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:#1a1a2e;background:#f5f7fa;line-height:1.7}
+  .hero{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:#fff;padding:80px 20px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:30px 30px;animation:drift 20s linear infinite}
+  @keyframes drift{to{transform:translate(30px,30px)}}
+  .hero h1{font-size:2.8rem;font-weight:800;margin-bottom:16px;letter-spacing:2px;position:relative}
+  .hero .subtitle{font-size:1.15rem;opacity:.85;max-width:600px;margin:0 auto 24px}
+  .hero .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;position:relative}
+  .hero .tag{background:rgba(255,255,255,.12);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2);padding:8px 20px;border-radius:24px;font-size:.9rem}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  section{padding:60px 0}
+  section:nth-child(even){background:#fff}
+  .section-label{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2c5364;border:1px solid #2c5364;padding:4px 14px;border-radius:20px;margin-bottom:12px}
+  .section-title{font-size:1.8rem;font-weight:700;color:#1a1a2e;margin-bottom:8px}
+  .section-desc{color:#555;margin-bottom:32px;font-size:1rem}
+  .timeline{position:relative;padding-left:40px}
+  .timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#2c5364,#0f2027)}
+  .timeline-item{position:relative;margin-bottom:36px}
+  .timeline-item::before{content:'';position:absolute;left:-33px;top:6px;width:14px;height:14px;border-radius:50%;background:#2c5364;border:3px solid #fff;box-shadow:0 0 0 2px #2c5364}
+  .timeline-year{font-size:1.1rem;font-weight:700;color:#2c5364}
+  .timeline-title{font-size:1.15rem;font-weight:600;margin:4px 0}
+  .timeline-text{color:#555;font-size:.95rem}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:32px}
+  .stat-card{background:linear-gradient(135deg,#2c5364,#0f2027);color:#fff;padding:28px 24px;border-radius:12px;text-align:center}
+  .stat-card .num{font-size:2.2rem;font-weight:800;display:block}
+  .stat-card .unit{font-size:.9rem;opacity:.8}
+  .stat-card .label{font-size:.8rem;opacity:.7;margin-top:4px}
+  .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px}
+  .case-card{background:#fff;border:1px solid #e8ecf1;border-radius:12px;padding:28px;transition:box-shadow .3s}
+  .case-card:hover{box-shadow:0 8px 30px rgba(44,83,100,.12)}
+  .case-card .case-tag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:1px;color:#fff;background:#2c5364;padding:3px 10px;border-radius:10px;margin-bottom:12px}
+  .case-card h3{font-size:1.1rem;margin-bottom:8px;color:#1a1a2e}
+  .case-card p{color:#555;font-size:.9rem;margin-bottom:6px}
+  .case-card .result{background:#f0f7fa;border-left:3px solid #2c5364;padding:10px 14px;border-radius:0 8px 8px 0;margin-top:12px;font-size:.88rem;color:#2c5364;font-weight:500}
+  .ability-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .ability-card{background:#fff;border:1px solid #e8ecf1;border-radius:10px;padding:22px;transition:transform .2s,box-shadow .2s}
+  .ability-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(44,83,100,.1)}
+  .ability-card h4{font-size:1rem;color:#2c5364;margin-bottom:6px}
+  .ability-card p{font-size:.85rem;color:#666}
+  .value-list{counter-reset:val}
+  .value-item{background:#fff;border:1px solid #e8ecf1;border-radius:10px;padding:24px 24px 24px 72px;position:relative;margin-bottom:16px;transition:box-shadow .2s}
+  .value-item:hover{box-shadow:0 4px 16px rgba(44,83,100,.08)}
+  .value-item::before{counter-increment:val;content:counter(val,decimal-leading-zero);position:absolute;left:20px;top:50%;transform:translateY(-50%);font-size:1.6rem;font-weight:800;color:#2c5364;opacity:.25}
+  .value-item h3{font-size:1.05rem;color:#1a1a2e;margin-bottom:6px}
+  .value-item p{font-size:.88rem;color:#666}
+  .roadmap{display:flex;gap:0;position:relative}
+  .roadmap::before{content:'';position:absolute;top:24px;left:0;right:0;height:3px;background:linear-gradient(to right,#2c5364,#0f2027);z-index:0}
+  .roadmap-step{flex:1;text-align:center;position:relative;z-index:1;padding:0 12px}
+  .roadmap-step .dot{width:48px;height:48px;background:#2c5364;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;margin-bottom:16px;border:4px solid #f5f7fa}
+  .roadmap-step h4{font-size:.95rem;margin-bottom:6px;color:#1a1a2e}
+  .roadmap-step p{font-size:.82rem;color:#666}
+  .quote-box{background:linear-gradient(135deg,#2c5364,#0f2027);color:#fff;padding:48px 32px;border-radius:16px;text-align:center;margin:48px 0}
+  .quote-box p{font-size:1.2rem;font-weight:600;line-height:1.8;max-width:680px;margin:0 auto}
+  .quote-box .author{margin-top:16px;font-size:.9rem;opacity:.7}
+  footer{text-align:center;padding:40px 20px;color:#999;font-size:.8rem}
+  @media(max-width:768px){
+    .hero h1{font-size:2rem}
+    .case-grid{grid-template-columns:1fr}
+    .roadmap{flex-direction:column}
+    .roadmap::before{top:0;bottom:0;left:24px;width:3px;height:auto;right:auto}
+    .roadmap-step .dot{margin-bottom:8px}
+    .roadmap-step{text-align:left;padding-left:68px;padding-bottom:24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>熊能能</h1>
+  <p class="subtitle">15年电商+大健康+新媒体全域实战，专注把流量变成订单、把订单变成私域、把私域变成复购</p>
+  <div class="tags">
+    <span class="tag">📊 资深电商运营专家</span>
+    <span class="tag">🏥 大健康产业实战派</span>
+    <span class="tag">📱 新媒体全域操盘手</span>
+  </div>
+</div>
+
+<!-- 个人概述 -->
+<section>
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">个人概述</h2>
+    <p class="section-desc">电商老兵，新媒体资深运营，流量操盘手。2009年入局电商，2012年转型新媒体，2018年布局抖音/快手/小红书等短视频平台，完整经历中国电商与新媒体的每一次技术变革。</p>
+    <div class="stat-grid">
+      <div class="stat-card"><span class="num">15<span class="unit">年+</span></span><span class="label">电商与新媒体从业经验</span></div>
+      <div class="stat-card"><span class="num">5000<span class="unit">万</span></span><span class="label">驼奶粉项目3年销售额</span></div>
+      <div class="stat-card"><span class="num">50<span class="unit">+</span></span><span class="label">累计服务客户</span></div>
+      <div class="stat-card"><span class="num">10<span class="unit">+</span></span><span class="label">行业头部案例</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 成长路径 -->
+<section>
+  <div class="container">
+    <span class="section-label">Journey</span>
+    <h2 class="section-title">15年成长路径</h2>
+    <p class="section-desc">每一步都在积累流量实战能力</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2009</div>
+        <div class="timeline-title">入局电商</div>
+        <div class="timeline-text">淘宝/天猫起步，深耕电商全链路——选品定价、供应链管理、店铺运营、流量投放。完整经历PC电商到移动电商的变革，形成体系化的电商操盘方法论。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2012</div>
+        <div class="timeline-title">深耕新媒体</div>
+        <div class="timeline-text">微信公众号、内容营销、社群运营。探索内容驱动流量的新范式，从公域获客到私域运营的方法论逐渐成型。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-title">布局短视频</div>
+        <div class="timeline-text">抖音/快手/小红书全平台运营，短视频+直播+内容电商。驼奶粉项目3年5000万，验证公私域联动完整模型。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 大健康实战 -->
+<section>
+  <div class="container">
+    <span class="section-label">Health</span>
+    <h2 class="section-title">大健康实战：驼奶粉项目3年5000万</h2>
+    <p class="section-desc">核心打法：电商订单粉转私域 + 新媒体信息流转私域</p>
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="case-tag">核心打法一</span>
+        <h3>电商订单粉转私域</h3>
+        <p>通过电商平台获取订单用户，在发货环节设计触点（包裹卡、售后回访）引导添加微信</p>
+        <p>建立私域承接团队，通过朋友圈+社群+一对一服务建立消费者信任</p>
+        <div class="result">私域用户客单价和复购率远高于公域，成为项目利润核心来源</div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">核心打法二</span>
+        <h3>新媒体信息流转私域</h3>
+        <p>在抖音/快手/小红书输出驼奶粉科普内容、产地溯源、用户案例</p>
+        <p>通过评论区互动、私信引导、主页联系方式，将兴趣用户转化为私域线索</p>
+        <div class="result">3年累计销售额5000万｜私域贡献超60%营收｜复购率显著高于行业</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 标杆案例 -->
+<section>
+  <div class="container">
+    <span class="section-label">Cases</span>
+    <h2 class="section-title">行业标杆案例</h2>
+    <p class="section-desc">横跨金融、探店、餐饮、三农四大赛道，均有量化成果</p>
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="case-tag">金融</span>
+        <h3>东莞证券 · AI智能获客</h3>
+        <p>珠三角老牌券商，传统获客成本高。搭建覆盖东莞+北上广深32个财经账号矩阵，AI数字人+智能文案+智能剪辑</p>
+        <div class="result">3个月单月开户614户｜管控资金超8000万｜获客成本降40%</div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">探店</span>
+        <h3>疆疆好 · 全域账号代运营</h3>
+        <p>珠海本土美食探店品牌，粉丝停滞。差异化人设+双平台协同+专属内容模板</p>
+        <div class="result">6个月粉丝增长900%（2万→20万）｜订单提前2周预约</div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">餐饮</span>
+        <h3>麻辣英雄 · 本地生活全案</h3>
+        <p>全国连锁火锅品牌珠海店，流量差排名靠后。POI优化+产品分层+公私域联动</p>
+        <div class="result">1个月POI跃升TOP3｜核销率45%→78%｜私域贡献30%营收</div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">三农</span>
+        <h3>阿克苏农技张老师 · IP孵化</h3>
+        <p>新疆阿克苏资深农技员，缺运营能力。实战专家人设+痛点型内容+地域标签强化</p>
+        <div class="result">6个月粉丝1.2万（0投放）｜月均农资变现22万｜当地头部标杆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 核心能力 -->
+<section>
+  <div class="container">
+    <span class="section-label">Skills</span>
+    <h2 class="section-title">核心能力矩阵</h2>
+    <p class="section-desc">六维能力，全部经过实战验证</p>
+    <div class="ability-grid">
+      <div class="ability-card">
+        <h4>🎯 流量获取</h4>
+        <p>全平台流量布局、内容策略、账号矩阵、IP孵化、转化漏斗优化</p>
+      </div>
+      <div class="ability-card">
+        <h4>🔄 公私域联动</h4>
+        <p>订单粉转私域、新媒体线索流转、私域承接与复购、用户生命周期管理</p>
+      </div>
+      <div class="ability-card">
+        <h4>📱 多平台运营</h4>
+        <p>淘宝/京东/拼多多（电商）+ 抖音/快手/小红书（短视频）+ 微信（私域）</p>
+      </div>
+      <div class="ability-card">
+        <h4>🏥 大健康赛道</h4>
+        <p>消费者信任构建、合规内容输出、用户教育、转化路径设计</p>
+      </div>
+      <div class="ability-card">
+        <h4>🤖 AI赋能</h4>
+        <p>数字人克隆、智能文案、智能剪辑、合规管控，效率超人工10倍</p>
+      </div>
+      <div class="ability-card">
+        <h4>📈 数据驱动</h4>
+        <p>BI数据监测、转化漏斗分析、策略精准调整，获客成本降低40%</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 金句 -->
+<section style="background:transparent">
+  <div class="container">
+    <div class="quote-box">
+      <p>15年流量操盘手，驼奶粉3年5000万验证<br>专注把流量变成订单、把订单变成私域、把私域变成复购</p>
+      <div class="author">熊能能 · 西安妍谋企业咨询管理有限公司</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 熊能能 · 西安妍谋企业咨询管理有限公司</p>
+</footer>
+
+</body>
+</html>
